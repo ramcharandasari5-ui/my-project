@@ -16,8 +16,8 @@ public class StudentMarks
     public static void main(String[] args)
     {
         int[] marks = {85,44,62,80,92};
-        int targermark = 80;
-        int result = SearchMark(marks,targermark);
-        System.out.println(result);y
+        int targermark = 35;
+        boolean result = SearchMark(marks,targermark);
+        System.out.println(result);
     }
 } 
