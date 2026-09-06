@@ -39,6 +39,25 @@ public class StudentMarkAnalyzer
         }
         return highestmark;
     }
+    public static int FindSecondHigestMark(int[] marks)
+    {
+        int first = -1;
+        int second = -1;
+        for(int i = 0; i < marks.length; i++)
+        {
+            int current = marks[i];
+            if(current > first)
+            {
+                second = first;
+                first = current;
+            }
+            else if(current > second)
+            {
+                second = current;
+            }
+        }
+        return second;
+    }
     public static int FindLowestMark(int[] marks)
     {
         int lowestmark = marks[0];
@@ -50,6 +69,25 @@ public class StudentMarkAnalyzer
             }
         }
         return lowestmark;
+    }
+    public static int FindSecondLowestMark(int[] marks)
+    {
+        int first = Integer.MAX_VALUE;
+        int second = Integer.MAX_VALUE;
+        for(int i = 0; i < marks.length; i++)
+        {
+            int current = marks[i];
+            if(current < first)
+            {
+                second = first;
+                first = current;
+            }
+            else if(current < second)
+            {
+                second = current;
+            }
+        }
+        return second;
     }
     public static boolean SearchMark(int[] marks, int targetmark)
     {
@@ -71,13 +109,17 @@ public class StudentMarkAnalyzer
         double avg = CalculateAverage(marks);
         int passCount = CountPassingMarks(marks);
         int high = FindHighestMark(marks);
+        int secondHigh = FindSecondHigestMark(marks);
         int low = FindLowestMark(marks);
+        int secondLow = FindSecondLowestMark(marks);
         boolean found = SearchMark(marks, 42);
         System.out.println("Total: " +total);
         System.out.println("Average: " +avg);
         System.out.println("Pass Count: " +passCount);
         System.out.println("Highest Mark: " +high);
+        System.out.println("Second Higest Mark: " +secondHigh);
         System.out.println("Lowest Mark: " +low);
+        System.out.println("Second Lowest Mark: " +secondLow);
         System.out.println("Found: " +found);
     }
 }
