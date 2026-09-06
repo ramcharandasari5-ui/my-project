@@ -102,9 +102,21 @@ public class StudentMarkAnalyzer
         }
         return found;
     }
+    public static int CountMarkOccurrences(int[] marks, int targetmark)
+    {
+        int count = 0;
+        for(int i = 0; i < marks.length; i++)
+        {
+            if(marks[i] == targetmark)
+            {
+                count ++;
+            }
+        }
+        return count;
+    }
     public static void main(String[] args)
     {
-        int[] marks = {85,42,91,68,35,77};
+        int[] marks = {85,42,85,91,68,42,35,72,68,85,80};
         int total = CalculateTotal(marks);
         double avg = CalculateAverage(marks);
         int passCount = CountPassingMarks(marks);
@@ -113,6 +125,7 @@ public class StudentMarkAnalyzer
         int low = FindLowestMark(marks);
         int secondLow = FindSecondLowestMark(marks);
         boolean found = SearchMark(marks, 42);
+        int countOccrur = CountMarkOccurrences(marks, 85);
         System.out.println("Total: " +total);
         System.out.println("Average: " +avg);
         System.out.println("Pass Count: " +passCount);
@@ -121,5 +134,6 @@ public class StudentMarkAnalyzer
         System.out.println("Lowest Mark: " +low);
         System.out.println("Second Lowest Mark: " +secondLow);
         System.out.println("Found: " +found);
+        System.out.println("Count Mark Occurrences = " +countOccrur);
     }
 }
